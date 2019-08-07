@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABIY_One", "ABIY_One\ABIY_One.csproj", "{5C694396-AD6A-476D-BF94-6A5A24F90DCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABIY_One.Tests", "ABIY_One.Tests\ABIY_One.Tests.csproj", "{299F0E33-F1C5-4EA4-B1B3-21841477763D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C694396-AD6A-476D-BF94-6A5A24F90DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C694396-AD6A-476D-BF94-6A5A24F90DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C694396-AD6A-476D-BF94-6A5A24F90DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C694396-AD6A-476D-BF94-6A5A24F90DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{299F0E33-F1C5-4EA4-B1B3-21841477763D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{299F0E33-F1C5-4EA4-B1B3-21841477763D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{299F0E33-F1C5-4EA4-B1B3-21841477763D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{299F0E33-F1C5-4EA4-B1B3-21841477763D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D064A15-7D7A-463E-ABD3-80E5A746A75B}
+	EndGlobalSection
+EndGlobal

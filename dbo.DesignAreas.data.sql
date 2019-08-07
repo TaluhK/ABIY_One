@@ -1,0 +1,18 @@
+﻿SET IDENTITY_INSERT [dbo].[DesignAreas] ON
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (1, N'Full Front')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (2, N'Medium Front')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (3, N'Center Chest')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (4, N'Across Chest')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (5, N'Right Chest')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (6, N'Left Chest')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (7, N'Right Sleeve')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (8, N'Left Sleeve')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (9, N'Right Vertical')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (10, N'Left Vertical')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (11, N'Front Bottom Right')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (12, N'Front Bottom Left')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (13, N'Full Back')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (14, N'Medium Back')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (15, N'Locker Patch Area')
+INSERT INTO [dbo].[DesignAreas] ([DesignAreaId], [AreaName]) VALUES (16, N'Across Shoulder')
+SET IDENTITY_INSERT [dbo].[DesignAreas] OFF

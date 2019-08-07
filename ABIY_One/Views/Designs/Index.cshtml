@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ABIY_One.Models.Design>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignType.DesignTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.DesignType.DesignTypeName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DesignName)
+    </td>
+    <td>
+        @if (item.DesignImage != null)
+        {
+            var base64 = Convert.ToBase64String(item.DesignImage);
+            var imgScr = string.Format("data:image/gif;base64,{0}", base64);
+            <a href="@Url.Action("Details", "Designs", new {id=item.DesignId})">
+                <img src="@imgScr" width="90" height="90" />
+            </a>
+            <br />
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DesignPrice)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.DesignId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.DesignId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.DesignId })
+    </td>
+</tr>
+}
+
+</table>

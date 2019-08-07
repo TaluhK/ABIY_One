@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ABIY_One.Models.DesignArea>
+
+@{
+    ViewBag.Title = "Design Areas";
+}
+
+    <h2 class="title text-center">@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AreaName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AreaName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DesignAreaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DesignAreaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DesignAreaId })
+        </td>
+    </tr>
+}
+
+</table>

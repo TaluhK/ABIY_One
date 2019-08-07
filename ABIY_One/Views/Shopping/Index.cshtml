@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ABIY_One.Models.Data_Models.Product>
+
+@{
+    ViewBag.Title = "Shop T-Shirts";
+}
+
+<h2 class="title text-center">T-shirts & Logo</h2>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-2 table-condensed" style="height:270px">
+            <div class="row" style="text-align: center;padding-top:5px">
+                @if (item.Picture != null)
+                {
+                    var base64 = Convert.ToBase64String(inArray: item.Picture);
+                    var imgSrc = string.Format(format: "data:image/gif;base64,{0}", arg0: base64);
+                    <img src="@imgSrc" width="90" height="70" />
+                }
+            </div>
+            <div class="row">
+                <p style="text-align: center">
+                    <b> @Html.DisplayFor(expression: modelItem => item.Name)</b>
+                </p>
+                <p style="text-align: center">
+                    @Html.DisplayFor(expression: modelItem => item.Description)
+                </p>
+                <p style="text-align: center;font-size:large;">
+                    @Html.DisplayFor(expression: modelItem => item.Price)
+                </p>
+                <p style="text-align: center">
+                    @if (item.QuantityInStock == 0)
+                    {
+                        <a href="@Url.Action(actionName: "add_to_cart", controllerName: "Shopping", routeValues: new {id = item.ItemCode})" class="btn disabled btn-default"><i class="fa fa-shopping-cart disabled"></i> Out of stock</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action(actionName: "add_to_cart", controllerName: "Shopping", routeValues: new {id = item.ItemCode})" class="btn btn-default"><i class="fa fa-shopping-cart"></i> Add to cart</a><br />
+                        <a href="@Url.Action(actionName: "Details", controllerName: "Products", routeValues: new {id = item.ItemCode})" class="btn btn-default"><i class="fa fa-shopping-cart"></i> View Details</a>
+
+                    }
+                </p>
+            </div>
+        </div>
+    }
+</div>

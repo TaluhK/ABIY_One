@@ -1,0 +1,71 @@
+﻿@using ABIY_One.Migrations;
+
+@model IEnumerable<ABIY_One.Models.Data_Models.Order>
+
+
+
+@{
+    ViewBag.Title = "My Orders";
+
+}
+@if (User.IsInRole("Admin"))
+{
+      Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+        <input type="button" value="Confirm Order"  /> 
+}
+<h2>My orders</h2>
+@if (!Model.Any())
+{
+    <h2 class="text-center">You have no orders</h2>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                Order No
+            </th>
+            <th>
+                Order Items
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Total
+            </th>
+            <th>
+                Payment
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => order.Order_ID)
+                </td>
+                <td>
+                    @if (order.Order_Items.Any())
+                    {
+                        foreach (var item in order.Order_Items)
+                        {
+                            @ViewData["i" + item.Order_Item_id] <br />
+                        }
+                    }
+                </td>
+                <td>
+                    @order.date_created
+                <td>
+                    @ViewData["p" + order.Order_ID]
+                </td>
+                <td>
+                    @order.status
+                </td>
+            </tr>
+        }
+
+    </table>
+}

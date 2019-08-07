@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ABIY_One.Models.Design>
+
+@{
+    ViewBag.Title = "View Designs";
+
+}
+@if (User.IsInRole("Admin"))
+{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="text-center">
+
+    <h2>Designs </h2>
+</div>
+<br />
+
+<script type="text/javascript">
+    function fileCheck(obj) {
+        var fileExtension = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
+        if ($.inArray($(obj).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+            alert("Only '.jpeg','.jpg', '.png', '.gif', '.bmp' formats are allowed.");
+        } else {
+            $("#ImageData").data("");
+        }
+    }
+</script>
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 portfolio-item">
+            <div class="pagination">
+                <div class="productinfo text-center jumbotron " style="background-color: #4fbfa280;">
+                    <ul style="list-style-type: none">
+                        <li>
+                            @if (item.DesignImage != null)
+                            {
+                                var base64 = Convert.ToBase64String(item.DesignImage);
+                                var imgScr = string.Format("data:image/gif;base64,{0}", base64);
+                                <a href="@Url.Action("Details", "Designs", new {id = item.DesignId})">
+                                    <img src="@imgScr" width="200" height="200" />
+                                </a>
+                                <br />
+                                <h3><strong>@item.DesignName  </strong></h3>
+                                <hr />
+                                @*@Html.DisplayFor(modelItem => item.ProductName)<br />*@
+                                <h4> <strong> Price</strong></h4>
+                                @*@Html.DisplayFor(modelItem => item.Price)<br />*@
+
+                                @Html.DisplayFor(modelItem => item.DesignPrice)<br />
+                                <strong>Type</strong><br />
+                                @Html.DisplayFor(modelItem => item.DesignType.DesignTypeName)<br /> <br />
+
+                            }
+
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div id="pageNavPosition" style="padding-top: 20px" align="center">
+    <script type="text/javascript">
+        var pager = new Pager('tablepaging', 4);
+        pager.init();
+        pager.showPageNav('pager', 'pageNavPosition');
+        pager.showPage(1);
+    </script>
+</div>
+<br /><br />

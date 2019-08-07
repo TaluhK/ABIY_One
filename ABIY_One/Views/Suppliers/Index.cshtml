@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ABIY_One.Models.Data_Models.Supplier>
+
+@{
+ ViewBag.Title = "List of Suppliers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+    <h2 class="title text-center">@ViewBag.Title</h2>
+
+    <a class="btn btn-default" href="@Url.Action("Create","Suppliers")">
+        <i class="fa fa-plus"></i>
+        Create New
+    </a>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            <a href="@Url.Action("Details","Suppliers", new { id=item.SupplierId })" rel="tooltip" title="View" class="btn btn-info btn-simple btn-xs"><i class="fa fa-eye"></i></a>
+            <a href="@Url.Action("Edit","Suppliers", new { id=item.SupplierId })" rel="tooltip" title="Edit" class="btn btn-success btn-simple btn-xs"><i class="fa fa-edit"></i></a>
+            <a href="@Url.Action("Delete", "Suppliers", new { id = item.SupplierId })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-times"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

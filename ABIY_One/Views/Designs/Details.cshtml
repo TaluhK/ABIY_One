@@ -1,0 +1,58 @@
+﻿@model ABIY_One.Models.Design
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Design</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DesignType.DesignTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesignType.DesignTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DesignName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesignName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DesignImage)
+        </dt>
+
+        <dd>
+
+            <div class="col-md-4">
+                <img src="data:image/png;base64,@Convert.ToBase64String(Model.DesignImage, 0, Model.DesignImage.Length)" style="width: 300px; height: 300px" alt="" />
+            </div>
+
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DesignPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesignPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (User.IsInRole("Designer"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.DesignId }) |
+        @Html.ActionLink("Back to List", "Index");
+}
+
+</p>
